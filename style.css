@@ -1,0 +1,76 @@
+/* 全体のデザイン設定　*/
+body {
+    background: black;
+    overflow: hidden;
+    font-family: sans-serif;        /* 文字のフォントをシンプルに（見やすく）*/
+    text-align: center;             /* テキストやボタンを中央揃えにする */
+    margin: 0;                      /* 余白をなくす（画面いっぱいに） */
+    color: white;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    box-shadow:
+        10px 20px white,
+        30px 50px white,
+        50px 80px white,
+        90px 120px white,
+        200px 150px white,
+        300px 80px white,
+        400px 200px white,
+        500px 100px white,
+        600px 300px white;
+    animation: twinkling 2s infinite ease-in-out alternate;
+    z-index: -1;
+}
+
+@keyframes twinkling {
+    0% { opacity: 0.3; }
+    100% { opacity: 1; }
+}
+
+/* スコアとハイスコアの表示エリア */
+#score-area {
+    margin: 10px;                   /* 周りに少しスペースを取る */
+    font-size: 1.2em;               /* 文字を少し大きくして見やすくする */
+}
+
+/* ゲームが表示されるエリア */
+#game-area {
+    background-color: rgba(0, 0, 0, 0.6); /* 半透明で星空を透けさせる */
+    height: 400px;
+    border: 2px solid white;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 敵キャラの見た目（赤い丸） */
+.enemy {
+    position: absolute;             /* ゲームエリア内の好きな場所に置けるようにする */
+    width: 60px;                    /* 幅60px */
+    height: 60px;                   /* 高さ60px（正方形） */
+    background-color: crimson;    /* 赤っぽい色にする（敵っぽさ） */
+    border-radius: 50%;             /* 丸くする（100%だと円になる） */
+    cursor: pointer;                /* マウスを乗せると指のマークになる */
+}
+
+.heal {
+    position: absolute;             /* ゲームエリア内の好きな場所に置けるようにする */
+    width: 40px;                    /* 幅40px */
+    height: 40px;                   /* 高さ40px（正方形） */
+    background-color: greenyellow;/* 緑っぽい色にする（回復っぽさ） */
+    border-radius: 50%;             /* 丸くする（100%だと円になる） */
+    cursor: pointer;                /* マウスを乗せると指のマークになる */
+}
+
+/* スタートボタンの見た目 */
+#start-btn {
+    font-size: 1em;                 /* ボタンの文字サイズ */
+    padding: 10px 20px;             /* 牡丹内の上下左右の余白（押しやすくする） */
+}

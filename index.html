@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <!-- スマホ対応（画面サイズに合わせる）-->
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- ブラウザのタブに表示されるタイトル -->
+         <title>反射神経ゲーム</title>
+
+        <!-- 外部CSSファイルを読み込む（デザイン設定） -->
+         <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <!-- ゲームのタイトル -->
+         <h1>反射神経ゲーム</h1>
+
+        <!-- スコアとハイスコアを表示するエリア -->
+         <div id="score-area">
+            スコア : <span id="score">0</span> / ハイスコア : <span id="highscore">0</span>
+         </div>
+
+        <!-- 敵キャラが出てくるゲームエリア -->
+         <div id="game-area"></div>
+        
+        <!-- ゲームスタートのボタン -->
+         <button id="start-btn">ゲームスタート</button>
+
+        <!-- 外部JavaScriptファイルを読み込む（ゲームの動きを決める）-->
+         <script src="script.js"></script>
+    </body>
+</html>
