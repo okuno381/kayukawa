@@ -10,6 +10,82 @@
          <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <!-- デバッグ用ボタン（初期状態で非表示） -->
+        <button id="reset-rules-btn" style="position:fixed; top:20px; right:20px; display:none; z-index:1000;">
+            ルール初回表示リセット
+        </button>
+        <!-- ルールボタン（左下） -->
+        <button id="rules-btn">ルール</button>
+
+        <!-- ルールモーダル -->
+        <div id="rules-modal" class="modal">
+            <div class="modal-content">
+                <h2>ゲームルール</h2>
+                <ul style="text-align: left;">
+                    <li>🔴 赤い丸をクリックすると <strong>1ポイント</strong></li>
+                    <li>🟢 緑の丸をクリックすると <strong>制限時間+2秒</strong></li>
+                    <li>🔵 青い丸を <strong>3回クリック</strong> で <strong>追加ボーナス!!</strong></li>
+                </ul>
+                <button id="rules-close">閉じる</button>
+            </div>
+        </div>
+        <!-- ランキング結果モーダル -->
+        <div id="ranking-modal" class="modal">
+            <div class="modal-content">
+                <h2>あなたの順位</h2>
+                <p><span id="rank-number">--</span> 位</p>
+                <button id="ranking-close">閉じる</button>
+            </div>
+            <!-- ランキングリスト（他プレイヤー風） -->
+            <div id="fake-ranking-list" style="margin-top: 20px; font-size: 0.9em; text-align: left;">
+                <!-- ここにJSでダミー順位を表示 -->
+            </div>
+            <div id="rank-scroll-wrapper" style="max-height: 200px; overflow: hidden; margin-top: 20px;">
+                <ul id="rank-entries" style="list-style: none; padding: 0; margin: 0; transition: transform 1s;"></ul>
+            </div>
+        </div>
+        <!-- 設定ボタン（歯車アイコン） -->
+        <img id="settings-btn" src="images/gear.png" alt="設定" />
+        
+        <!-- モーダル（背景選択） -->
+        <div id="background-modal" class="modal">
+            <div class="modal-content">
+                <h2>背景を選んでください</h2>
+                <div class="background-options">
+                    <div class="bg-option"><img src="images/earth.jpg" data-bg="images/earth.jpg">
+                        <p>地球</p>
+                    </div>
+                    <div class="bg-option"><img src="images/space.jpg" data-bg="images/space.jpg">
+                        <p>宇宙</p>
+                    </div>
+                    <div class="bg-option"><img src="images/sky.png" data-bg="images/sky.png">
+                        <p>空</p>
+                    </div>
+                    <div class="bg-option"><img src="images/city.jpg" data-bg="images/city.jpg">
+                        <p>都市</p>
+                    </div>
+                    <div class="bg-option"><img src="images/forest.jpg" data-bg="images/forest.jpg">
+                        <p>森</p>
+                    </div>
+                    <div class="bg-option"><img src="images/sea.jpg" data-bg="images/sea.jpg">
+                        <p>海</p>
+                    </div>
+                    <div class="bg-option"><img src="images/desert.jpg" data-bg="images/desert.jpg">
+                        <p>砂漠</p>
+                    </div>
+                    <div class="bg-option"><img src="images/festival.jpg" data-bg="images/festival.jpg">
+                        <p>お祭り</p>
+                    </div>
+                    <div class="bg-option"><img src="images/snow.jpg" data-bg="images/snow.jpg">
+                        <p>雪景色</p>
+                    </div>
+                    <div class="bg-option"><img src="images/wahuu.png" data-bg="images/wahuu.png">
+                        <p>和風</p>
+                    </div>
+                </div>
+                <button id="close-modal">閉じる</button>
+            </div>
+        </div>
         <!-- ゲームのタイトル -->
          <h1>反射神経ゲーム</h1>
 

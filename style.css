@@ -1,38 +1,12 @@
 /* 全体のデザイン設定　*/
 body {
-    background: black;
+    background: url('images/earth.jpg') no-repeat center center fixed;
+    background-size: cover;         /* 画像を画面全体にカバー */
     overflow: hidden;
-    font-family: sans-serif;        /* 文字のフォントをシンプルに（見やすく）*/
-    text-align: center;             /* テキストやボタンを中央揃えにする */
-    margin: 0;                      /* 余白をなくす（画面いっぱいに） */
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
     color: white;
-}
-
-body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: transparent;
-    box-shadow:
-        10px 20px white,
-        30px 50px white,
-        50px 80px white,
-        90px 120px white,
-        200px 150px white,
-        300px 80px white,
-        400px 200px white,
-        500px 100px white,
-        600px 300px white;
-    animation: twinkling 2s infinite ease-in-out alternate;
-    z-index: -1;
-}
-
-@keyframes twinkling {
-    0% { opacity: 0.3; }
-    100% { opacity: 1; }
 }
 
 /* スコアとハイスコアの表示エリア */
@@ -73,4 +47,130 @@ body::before {
 #start-btn {
     font-size: 1em;                 /* ボタンの文字サイズ */
     padding: 10px 20px;             /* 牡丹内の上下左右の余白（押しやすくする） */
+}
+
+/* 設定ボタン（画面右下） */
+#settings-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* モーダル全体 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+}
+
+/* モーダルの内容 */
+.modal-content {
+    background-color: #222;
+    color: white;
+    margin: 10% auto;
+    padding: 20px;
+    border: 2px solid white;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* 背景選択肢のレイアウト */
+.background-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.bg-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    cursor: pointer;
+}
+
+.bg-option img {
+    width: 100px;
+    height: 60px;
+    object-fit: cover;
+    border: 2px solid white;
+    transition: transform 0.2s;
+}
+
+.bg-option img:hover {
+    transform: scale(1.1);
+}
+
+.bg-option p {
+    margin: 5px 0 0;
+    font-size: 0.9em;
+}
+
+#close-modal {
+    margin-top: 20px;
+    padding: 8px 16px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+/* ランキングの数字を目立たせる */
+#rank-number {
+    font-size: 3em;
+    color: gold;
+    font-weight: bold;
+}
+
+#rank-entries li {
+    padding: 8px;
+    font-size: 1em;
+    transition: background 0.3s;
+}
+
+#rank-entries li.you {
+    color: gold;
+    font-weight: bold;
+    background-color: rgba(255, 215, 0, 0.1);
+    animation: flash 1s ease-in-out 2;
+}
+
+@keyframes flash {
+    0% { background-color: rgba(255, 215, 0, 0.1); }
+    50% { background-color: rgba(255, 255, 0, 0.6); }
+    100% { background-color: rgba(255, 215, 0, 0.1); }
+}
+
+#rank-entries {
+    transition: transform 2s ease-out;
+}
+
+.tough-enemy {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ルールボタン（画面左下固定） */
+#rules-btn {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 8px 14px;
+    font-size: 1em;
+    cursor: pointer;
+    z-index: 1000;
 }
